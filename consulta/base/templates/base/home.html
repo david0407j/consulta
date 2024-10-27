@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Consultas</title>
+    <link rel="stylesheet" href="{% static 'minha_app/css/styles.css' %}">
+    <link rel="icon" href="{% static 'img/davidon.ico' %}" />
+</head>
+<body>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Fonte e cores do site */
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f9;
+        }
+
+        /* Estilo do cabeçalho */
+        header {
+            background-color: hsl(232, 89%, 48%);
+            color: #fff;
+            text-align: center;
+            padding: 1.5em 0;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin-bottom: 0.3em;
+        }
+
+        header p {
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        /* Layout principal */
+        main {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+        }
+
+        /* Estilo das seções */
+        .intro,
+        .services,
+        .cta {
+            margin-bottom: 2em;
+            padding: 1em;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h3 {
+            color: hsl(233, 92%, 45%);
+            margin-bottom: 0.5em;
+        }
+
+        /* Lista de serviços */
+        .services ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .services li {
+            position: relative;
+            font-size: 1.1em;
+            margin-bottom: 0.8em;
+            padding-left: 1.8em;
+        }
+
+        .services li::before {
+            content: '✔️';
+            position: absolute;
+            left: 0;
+            color: hsl(254, 85%, 46%);
+            font-size: 1.3em;
+            line-height: 1.2em;
+        }
+
+        /* Botão de ação */
+        .btn {
+            display: inline-block;
+            background-color: hsl(240, 89%, 49%);
+            color: #fff;
+            padding: 0.8em 1.5em;
+            font-size: 1em;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background-color: hsl(248, 94%, 50%);
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 1.5em;
+            background-color: #333;
+            color: #eee;
+            font-size: 0.9em;
+        }
+
+    </style>
+
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Bem-vindo ao Sistema de Agendamento de Consultas</h1>
+        <p>Facilite o agendamento e gerencie suas consultas de forma prática e segura.</p>
+    </header>
+
+    <!-- Seção Principal -->
+    <main>
+        <!-- Apresentação do Sistema -->
+        <section class="intro">
+            <h2>Agende suas consultas com facilidade</h2>
+            <p>Nosso sistema permite que você agende, consulte e gerencie todos os seus compromissos médicos em um único lugar.</p>
+        </section>
+
+        <!-- Serviços Oferecidos -->
+        <section class="services">
+            <h3>Nossos Serviços</h3>
+            <ul>
+                <li>Agendamento rápido e seguro</li>
+                <li>Gerenciamento de histórico de consultas</li>
+                <li>Notificações e lembretes automáticos</li>
+                <li>Atendimento online e presencial</li>
+            </ul>
+        </section>
+
+        <!-- Botão de Acesso -->
+        <section class="cta">
+            <a href="/agendar" class="btn">Agendar Consulta</a>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Sistema de Agendamento de Consultas. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

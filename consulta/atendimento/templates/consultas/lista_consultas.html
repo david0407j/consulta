@@ -1,0 +1,24 @@
+<h1>Minhas Consultas</h1>
+
+<table>
+    <tr>
+        <th>Médico</th>
+        <th>Data</th>
+        <th>Horário</th>
+        <th>Status</th>
+        <th>Ações</th>
+    </tr>
+    {% for consulta in consultas %}
+    <tr>
+        <td>{{ consulta.medico.nome_completo }}</td>
+        <td>{{ consulta.data }}</td>
+        <td>{{ consulta.horario }}</td>
+        <td>{{ consulta.status }}</td>
+        <td>
+            {% if consulta.status == 'Pendente' %}
+                <a href="{% url 'cancelar_consulta' consulta.id %}">Cancelar</a>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
