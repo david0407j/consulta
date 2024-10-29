@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Consultas</title>
+    <style>
+        /* Estilo básico para o corpo */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+        }
+        /* Contêiner da tabela */
+        .table-container {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+        /* Título */
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        /* Estilo da tabela */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+        /* Zebra stripes nas linhas */
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        /* Estilo para link de ação */
+        .action-link {
+            color: #d9534f;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .action-link:hover {
+            color: #c9302c;
+        }
+        /* Estilo para status pendente */
+        .status-pendente {
+            color: #ff9800;
+            font-weight: bold;
+        }
+        /* Estilo para status concluído */
+        .status-concluido {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <h1>Minhas Consultas</h1>
+        <table>
+            <tr>
+                <th>Médico</th>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+            {% for consulta in consultas %}
+            <tr>
+                <td>{{ consulta.medico.nome_completo }}</td>
+                <td>{{ consulta.data }}</td>
+                <td>{{ consulta.horario }}</td>
+                <td>
+                    {% if consulta.status == 'Pendente' %}
+                        <span class="status-pendente">{{ consulta.status }}</span>
+                    {% else %}
+                        <span class="status-concluido">{{ consulta.status }}</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if consulta.status == 'Pendente' %}
+                        <a href="{% url 'cancelar_consulta' consulta.id %}" class="action-link">Cancelar</a>
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
