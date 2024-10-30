@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: superfly/flyctl-actions/setup-flyctl@v1  # Definindo a versão v1 explicitamente
+      - uses: superfly/flyctl-actions/setup-flyctl@v1  # Versão estável da ação Fly.io
 
       - name: Verifying FLY_API_TOKEN
         env:
