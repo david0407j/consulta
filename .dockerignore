@@ -1,0 +1,9 @@
+fly.toml
+.git/
+*.sqlite3
+.venv
+.pgdata/
+.pytest_cache/
+.vscode/
+mediafiles/
+contrib/
