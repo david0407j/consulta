@@ -1,33 +1,31 @@
-# fly.toml app configuration file generated for consulta-empty-shadow-6379 on 2024-10-29T20:50:34-03:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
-
-app = 'consulta-empty-shadow-6379'
-primary_region = 'gru'
-console_command = '/code/manage.py shell'
+app = "consulta-empty-shadow-6379"
+primary_region = "gru"
 
 [build]
 
 [deploy]
- release_command = "./pos-release.sh"
+  release_command = "./pos-release.sh"
 
 [env]
-  PORT = '8000'
+  PORT = "8000"
+  DJANGO_SECRET_KEY = "<your-secret-key>"
+  DATABASE_URL = "postgres://username:password@hostname:5432/dbname"
+  ALLOWED_HOSTS = ".fly.dev,localhost,consulta-empty-shadow-6379.fly.dev"
 
 [http_service]
   internal_port = 8000
   force_https = true
-  auto_stop_machines = 'stop'
+  auto_stop_machines = true
   auto_start_machines = true
-  min_machines_running = 0
-  processes = ['app']
+  min_machines_running = 1
+  processes = ["app"]
 
 [[vm]]
-  memory = '1gb'
-  cpu_kind = 'shared'
+  memory = "1gb"
+  cpu_kind = "shared"
   cpus = 1
 
 [[statics]]
-  guest_path = '/code/static'
-  url_prefix = '/static/'
+  guest_path = "/code/static"
+  url_prefix = "/static/"
+
